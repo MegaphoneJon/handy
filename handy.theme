@@ -172,7 +172,7 @@ function handy_preprocess_page(&$variables)
     }
     if ($node->hasField('field_extra_class')) {
       $extra_class = $node->get('field_extra_class')->getValue();
-      if(isset($extra_class) && $extra_class[0]['value']) {
+      if($extra_class[0]['value'] ?? FALSE) {
         $variables['extra_class'] = $extra_class[0]['value'];
       }
     }
