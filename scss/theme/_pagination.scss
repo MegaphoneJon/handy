@@ -1,19 +1,23 @@
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	PAGINATION
 //----------------------------------------------------------//
 .pagination {
-  box-shadow: $box-shadow;
+  box-shadow: scss-variables.$box-shadow;
   .page-link {
-    width: $pagination-size;
-    height: $pagination-size;
-    @include font-size($pagination-font-size);
-    font-weight: $pagination-font-weight;
+    width: variables.$pagination-size;
+    height: variables.$pagination-size;
+    @include rfs.font-size(scss-variables.$pagination-font-size);
+    font-weight: variables.$pagination-font-weight;
     display: flex;
     justify-content: center;
     align-items: center;
   
     i {
-      @include font-size($pagination-icon-font-size);
+      @include rfs.font-size(variables.$pagination-icon-font-size);
     }
   }
   &.pagination-alt {
@@ -22,8 +26,8 @@
       margin-right: 0.5rem;
       .page-link {
         border: 0;
-        border-radius: $border-radius !important;
-        box-shadow: $box-shadow-lg;
+        border-radius: scss-variables.$border-radius !important;
+        box-shadow: scss-variables.$box-shadow-lg;
       }
     }
   }

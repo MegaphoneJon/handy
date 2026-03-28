@@ -1,3 +1,11 @@
+@use "../libraries/bootstrap/scss/functions";
+@use "../libraries/bootstrap/scss/mixins/box-shadow";
+@use "../libraries/bootstrap/scss/mixins/buttons";
+@use "../libraries/bootstrap/scss/mixins/transition";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	BUTTON
 //----------------------------------------------------------//
@@ -6,15 +14,15 @@
   align-items: center;
   justify-content: center;
   transform: translateY(0);
-  letter-spacing: $letter-spacing;
+  letter-spacing: variables.$letter-spacing;
   position: relative;
   &:not(.btn-link):hover {
     transform: translateY(-0.15rem);
-    @include box-shadow($btn-active-box-shadow);
+    @include box-shadow.box-shadow(scss-variables.$btn-active-box-shadow);
   }
   &.btn-white:hover,
   &[class*="btn-soft-"]:hover {
-    @include box-shadow($btn-shadow-sm);
+    @include box-shadow.box-shadow(variables.$btn-shadow-sm);
   }
   &.btn-block {
     padding: 0;
@@ -23,23 +31,23 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    @include font-size(1rem);
+    @include rfs.font-size(1rem);
     line-height: 1;
     backface-visibility: hidden;
     &.btn-sm {
       width: 1.8rem;
       height: 1.8rem;
-      @include font-size(1rem);
+      @include rfs.font-size(1rem);
     }
     &.btn-lg {
       width: 3rem;
       height: 3rem;
-      @include font-size(1.4rem);
+      @include rfs.font-size(1.4rem);
     }
     &.btn-play {
       width: 3.5rem;
       height: 3.5rem;
-      @include font-size(1.2rem);
+      @include rfs.font-size(1.2rem);
       i {
         margin-left: 0.15rem;
       }
@@ -49,8 +57,8 @@
       text-align: center;
       margin: 0 auto;
       vertical-align: middle;
-      @include font-size(1.1rem);
-      font-weight: $font-weight-bold;
+      @include rfs.font-size(1.1rem);
+      font-weight: scss-variables.$font-weight-bold;
     }
   }
   &.btn-circle {
@@ -61,26 +69,26 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    @include font-size(1rem);
+    @include rfs.font-size(1rem);
     line-height: 1;
     backface-visibility: hidden;
     &.btn-sm {
       width: 1.8rem;
       height: 1.8rem;
-      @include font-size(0.8rem);
+      @include rfs.font-size(0.8rem);
       i {
-        @include font-size(0.85rem);
+        @include rfs.font-size(0.85rem);
       }
     }
     &.btn-lg {
       width: 3rem;
       height: 3rem;
-      @include font-size(1.3rem);
+      @include rfs.font-size(1.3rem);
     }
     &.btn-play {
       width: 3.5rem;
       height: 3.5rem;
-      @include font-size(2.3rem);
+      @include rfs.font-size(2.3rem);
       i {
         margin-left: 0.15rem;
       }
@@ -89,25 +97,25 @@
       }
     }
     &.counter {
-      @include box-shadow($box-shadow);
+      @include box-shadow.box-shadow(scss-variables.$box-shadow);
     }
     .number {
       display: table-cell;
       text-align: center;
       margin: 0 auto;
       vertical-align: middle;
-      @include font-size(1.1rem);
-      font-weight: $font-weight-bold;
+      @include rfs.font-size(1.1rem);
+      font-weight: scss-variables.$font-weight-bold;
     }
   }
   &.btn-expand {
     background: none;
     border: 0;
     padding-left: 0;
-    padding-top: $btn-padding-y + 0.05;
-    padding-bottom: $btn-padding-y + 0.05;
+    padding-top: scss-variables.$btn-padding-y + 0.05;
+    padding-bottom: scss-variables.$btn-padding-y + 0.05;
     max-height: 2.5rem;
-    @include font-size($btn-font-size + 0.05);
+    @include rfs.font-size(scss-variables.$btn-font-size + 0.05);
     span {
       position: relative;
       z-index: 2;
@@ -123,26 +131,26 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: $white;
-      @include font-size(1.35rem);
-      transition: $bezier-transition;
+      color: scss-variables.$white;
+      @include rfs.font-size(1.35rem);
+      transition: variables.$bezier-transition;
     }
     &:before {
       content: "";
-      transition: $bezier-transition;
+      transition: variables.$bezier-transition;
       width: auto;
       height: 2.5rem;
       position: absolute;
       top: 0;
       left: 0;
       width: 2.5rem;
-      border-radius: $border-radius-pill;
+      border-radius: scss-variables.$border-radius-pill;
       z-index: 0;
     }
     &:hover {
       background: none;
       transform: translateY(0);
-      color: $white;
+      color: scss-variables.$white;
       box-shadow: none;
       i {
         left: 0.25rem;
@@ -152,13 +160,13 @@
       }
     }
     &.btn-sm {
-      padding-top: $btn-padding-y-sm + 0.05;
-      padding-bottom: $btn-padding-y-sm + 0.05;
-      @include font-size($btn-font-size-sm + 0.05);
+      padding-top: scss-variables.$btn-padding-y-sm + 0.05;
+      padding-bottom: scss-variables.$btn-padding-y-sm + 0.05;
+      @include rfs.font-size(scss-variables.$btn-font-size-sm + 0.05);
       i {
         width: 2.15rem;
         height: 2.15rem;
-        @include font-size(1.1rem);
+        @include rfs.font-size(1.1rem);
       }
       span {
         padding-left: 2.65rem;
@@ -173,13 +181,13 @@
       }
     }
     &.btn-lg {
-      padding-top: $btn-padding-y-lg + 0.05;
-      padding-bottom: $btn-padding-y-lg + 0.05;
-      @include font-size($btn-font-size-lg + 0.05);
+      padding-top: scss-variables.$btn-padding-y-lg + 0.05;
+      padding-bottom: scss-variables.$btn-padding-y-lg + 0.05;
+      @include rfs.font-size(scss-variables.$btn-font-size-lg + 0.05);
       i {
         width: 2.9rem;
         height: 2.9rem;
-        @include font-size(1.35rem);
+        @include rfs.font-size(1.35rem);
       }
       span {
         padding-left: 3.4rem;
@@ -202,19 +210,19 @@ button:focus {
   outline: 0;
 }
 @each $color,
-$value in $button-colors {
+$value in variables.$button-colors {
   .btn-#{$color} {
     //--#{$prefix}btn-active-color: $value;
-    --#{$prefix}btn-active-bg: $value;
-    --#{$prefix}btn-active-border-color: $value;
-    --#{$prefix}btn-active-shadow: var(--#{$prefix}btn-box-shadow);
-    @include button-variant(
+    --#{scss-variables.$prefix}btn-active-bg: $value;
+    --#{scss-variables.$prefix}btn-active-border-color: $value;
+    --#{scss-variables.$prefix}btn-active-shadow: var(--#{scss-variables.$prefix}btn-box-shadow);
+    @include buttons.button-variant(
       $value,
-      $color: $white,
+      $color: scss-variables.$white,
       $border: $value,
-      $hover-color: $white,
-      $active-color: $white,
-      $disabled-color: $white,
+      $hover-color: scss-variables.$white,
+      $active-color: scss-variables.$white,
+      $disabled-color: scss-variables.$white,
     );
     &.btn-expand {
       color: $value;
@@ -226,14 +234,14 @@ $value in $button-colors {
   
 }
 @each $color,
-$value in $button-soft-colors {
+$value in variables.$button-soft-colors {
   .btn-soft-#{$color} {
     //--#{$prefix}btn-active-bg: $value;
     //--#{$prefix}btn-active-border-color: $value;
-    --#{$prefix}btn-active-shadow: #{$btn-shadow-sm} !important;
-    @include button-variant(
-      $background: tint-color($value, $bg-pale-level),
-      $border: tint-color($value, $bg-pale-level),
+    --#{scss-variables.$prefix}btn-active-shadow: #{variables.$btn-shadow-sm} !important;
+    @include buttons.button-variant(
+      $background: functions.tint-color($value, variables.$bg-pale-level),
+      $border: functions.tint-color($value, variables.$bg-pale-level),
       $color: $value,
       $hover-color: $value,
       $active-color: $value,
@@ -248,58 +256,58 @@ $value in $button-soft-colors {
         color: $value;
       }
       &:before {
-        background-color: tint-color($value, $bg-pale-level);
+        background-color: functions.tint-color($value, variables.$bg-pale-level);
       }
     }
   }
 }
 .btn-soft-ash {
-  @include button-variant(
-    $background: $border-light,
+  @include buttons.button-variant(
+    $background: variables.$border-light,
     $border: transparent,
-    $color: $main-dark,
-    $hover-color: $main-dark,
+    $color: variables.$main-dark,
+    $hover-color: variables.$main-dark,
   );
 }
 .btn-white {
-  @include button-variant(
-    $background: $white,
-    $border: $white,
-    $color: $main-dark,
-    $hover-color: $main-dark,
+  @include buttons.button-variant(
+    $background: scss-variables.$white,
+    $border: scss-variables.$white,
+    $color: variables.$main-dark,
+    $hover-color: variables.$main-dark,
   );
   &.btn-expand i {
-    color: $main-dark;
+    color: variables.$main-dark;
   }
   &.btn-play:hover {
-    color: $main-color;
+    color: variables.$main-color;
   }
 }
 //----------------------------------------------------------//
 //	BUTTON GRADIENT
 //----------------------------------------------------------//
 .btn-gradient {
-  color: $white !important;
+  color: scss-variables.$white !important;
   border: 0;
-  padding-top: $btn-padding-y + 0.1;
-  padding-bottom: $btn-padding-y + 0.1;
+  padding-top: scss-variables.$btn-padding-y + 0.1;
+  padding-bottom: scss-variables.$btn-padding-y + 0.1;
   &.btn-sm {
-    padding-top: $btn-padding-y-sm + 0.1;
-    padding-bottom: $btn-padding-y-sm + 0.1;
+    padding-top: scss-variables.$btn-padding-y-sm + 0.1;
+    padding-bottom: scss-variables.$btn-padding-y-sm + 0.1;
   }
   &.btn-lg {
-    padding-top: $btn-padding-y-lg + 0.1;
-    padding-bottom: $btn-padding-y-lg + 0.1;
+    padding-top: scss-variables.$btn-padding-y-lg + 0.1;
+    padding-bottom: scss-variables.$btn-padding-y-lg + 0.1;
   }
 }
 @each $gradient,
-$value in $gradients {
-  .#{$gradient} {
+$value in variables.$gradients {
+  .#{scss-variables.$gradient} {
     background-image: $value;
   }
-  .#{$gradient}.btn-outline-gradient,
-  .#{$gradient}.btn-outline-gradient span {
-    background-image: linear-gradient(rgba($white, 0), rgba($white, 0)), $value;
+  .#{scss-variables.$gradient}.btn-outline-gradient,
+  .#{scss-variables.$gradient}.btn-outline-gradient span {
+    background-image: linear-gradient(rgba(scss-variables.$white, 0), rgba(scss-variables.$white, 0)), $value;
   }
 }
 .gradient-6,
@@ -309,21 +317,21 @@ $value in $gradients {
 .btn-outline-gradient,
 .btn-outline-gradient:disabled,
 .btn-outline-gradient.disabled {
-  --#{$prefix}btn-active-border-color: transparent;
-  --#{$prefix}btn-active-color: $white;
+  --#{scss-variables.$prefix}btn-active-border-color: transparent;
+  --#{scss-variables.$prefix}btn-active-color: $white;
   border: 2px solid transparent;
   background-origin: border-box;
   background-clip: content-box, border-box;
   box-shadow: 2px 1000px 1px #fff inset;
-  padding: $btn-padding-y $btn-padding-x - 0.1rem;
+  padding: scss-variables.$btn-padding-y scss-variables.$btn-padding-x - 0.1rem;
   &.btn-sm:not(.btn-circle) {
-    padding: $btn-padding-y-sm $btn-padding-x-sm - 0.1rem;
+    padding: scss-variables.$btn-padding-y-sm scss-variables.$btn-padding-x-sm - 0.1rem;
   }
   &.btn-lg {
-    padding: $btn-padding-y-lg $btn-padding-x-lg - 0.1rem;
+    padding: scss-variables.$btn-padding-y-lg scss-variables.$btn-padding-x-lg - 0.1rem;
   }
   span {
-    color: $main-dark !important;
+    color: variables.$main-dark !important;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -331,7 +339,7 @@ $value in $gradients {
   &:focus-visible,
   &:active {
     span {
-      color: $white !important;
+      color: scss-variables.$white !important;
       background: none;
       -webkit-background-clip: unset;
       -webkit-text-fill-color: unset;
@@ -342,26 +350,26 @@ $value in $gradients {
 //	BUTTON SIZES
 //----------------------------------------------------------//
 .btn-lg {
-  @include button-size($btn-padding-y-lg,
-    $btn-padding-x-lg,
-    $btn-font-size-lg,
-    $btn-border-radius-lg);
+  @include buttons.button-size(scss-variables.$btn-padding-y-lg,
+    scss-variables.$btn-padding-x-lg,
+    scss-variables.$btn-font-size-lg,
+    scss-variables.$btn-border-radius-lg);
 }
 .btn-sm {
-  @include button-size($btn-padding-y-sm,
-    $btn-padding-x-sm,
-    $btn-font-size-sm,
-    $btn-border-radius-sm);
+  @include buttons.button-size(scss-variables.$btn-padding-y-sm,
+    scss-variables.$btn-padding-x-sm,
+    scss-variables.$btn-font-size-sm,
+    scss-variables.$btn-border-radius-sm);
 }
 //----------------------------------------------------------//
 //	BUTTON WITH ICON
 //----------------------------------------------------------//
 .btn-icon {
   &.btn-sm {
-    padding-top: $btn-padding-y-sm - 0.1rem;
-    padding-bottom: $btn-padding-y-sm - 0.1rem;
+    padding-top: scss-variables.$btn-padding-y-sm - 0.1rem;
+    padding-bottom: scss-variables.$btn-padding-y-sm - 0.1rem;
     i {
-      @include font-size(0.8rem);
+      @include rfs.font-size(0.8rem);
     }
   }
   &.btn-icon-start i {
@@ -373,7 +381,7 @@ $value in $gradients {
 }
 .navigation .btn-icon {
   i {
-    @include font-size(0.9rem);
+    @include rfs.font-size(0.9rem);
   }
   &.btn-icon-start i {
     margin-right: 0.2rem;
@@ -386,41 +394,41 @@ $value in $gradients {
 //	NAVBAR BUTTON
 //----------------------------------------------------------//
 .navbar .btn-sm {
-  @include font-size($nav-link-font-size);
+  @include rfs.font-size(scss-variables.$nav-link-font-size);
 }
 //----------------------------------------------------------//
 //	SOCIAL
 //----------------------------------------------------------//
 .social a:not(.btn-circle) {
-  @include font-size(1rem);
-  @include transition($btn-transition);
+  @include rfs.font-size(1rem);
+  @include transition.transition(scss-variables.$btn-transition);
   transform: translateY(0);
   &:hover {
     transform: translateY(-0.15rem);
   }
   i {
-    @include font-size(1rem);
+    @include rfs.font-size(1rem);
   }
 }
 @each $color,
-$value in $brand-colors {
+$value in variables.$brand-colors {
   .social a:not([class*="link-"]):not(.btn-circle) .uil[class*="#{$color}"] {
     color: $value;
   }
   .social a.btn-circle[class*="#{$color}"] {
-    color: $white;
+    color: scss-variables.$white;
     background-color: $value;
     border-color: transparent;
   }
 }
 .social.social-muted a:not(.btn-circle):not([class*="link-"]) i {
-  color: $main-dark !important;
+  color: variables.$main-dark !important;
 }
 .social.social-white a i,
 .social.social-white a:hover i,
 .navbar-dark .social.social-muted a:not(.btn-circle):not([class*="link-"]) i,
 .navbar-dark .social.social-muted a:not(.btn-circle):not([class*="link-"])uıy:hover i {
-  color: $white !important;
+  color: scss-variables.$white !important;
 }
 .social>a {
   margin: 0 0.7rem 0 0;
@@ -443,7 +451,7 @@ $value in $brand-colors {
 //	BAGDE
 //----------------------------------------------------------//
 .badge-lg {
-  @include font-size(0.6rem);
+  @include rfs.font-size(0.6rem);
   padding: 0.35rem 0.55rem;
 }
 .badge-cart {
@@ -454,7 +462,7 @@ $value in $brand-colors {
   display: flex;
   align-items: center;
   justify-content: center;
-  @include font-size(0.55rem);
+  @include rfs.font-size(0.55rem);
 }
 //----------------------------------------------------------//
 //	AVATAR
@@ -463,10 +471,10 @@ $value in $brand-colors {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: $btn-font-family;
-  font-weight: $btn-font-weight;
-  line-height: $btn-line-height;
-  letter-spacing: $letter-spacing;
+  font-family: scss-variables.$btn-font-family;
+  font-weight: scss-variables.$btn-font-weight;
+  line-height: scss-variables.$btn-line-height;
+  letter-spacing: variables.$letter-spacing;
   border-radius: 100%;
   height: auto;
 }

@@ -1,3 +1,7 @@
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	FORMS
 //----------------------------------------------------------//
@@ -8,8 +12,8 @@ select {
 }
 .form-floating {
   > label {
-    color: $form-label-color;
-    @include font-size($input-font-size);
+    color: scss-variables.$form-label-color;
+    @include rfs.font-size(scss-variables.$input-font-size);
   }
   &.input-group label {
     margin-left: 0.05rem !important;
@@ -17,10 +21,10 @@ select {
   > textarea.form-control {
     &:focus,
     &:not(:placeholder-shown) {
-      padding-top: $form-floating-input-padding-t + 0.3rem;
+      padding-top: scss-variables.$form-floating-input-padding-t + 0.3rem;
     }
     &:-webkit-autofill {
-      padding-top: $form-floating-input-padding-t + 0.3rem;
+      padding-top: scss-variables.$form-floating-input-padding-t + 0.3rem;
     }
   }
 }
@@ -31,15 +35,15 @@ select {
     padding-right: 2.25rem !important;
   }
   &:before {
-    content: $icon-search;
-    font-family: $font-family-unicons;
+    content: variables.$icon-search;
+    font-family: variables.$font-family-unicons;
     display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 0.75rem;
-    @include font-size(0.9rem);
-    color: $input-placeholder-color;
+    @include rfs.font-size(0.9rem);
+    color: scss-variables.$input-placeholder-color;
     z-index: 1;
   }
 }
@@ -49,11 +53,11 @@ select {
   transform: translateY(-50%);
   right: 0.75rem;
   cursor: pointer;
-  @include font-size(0.9rem);
-  color: $input-placeholder-color;
+  @include rfs.font-size(0.9rem);
+  color: scss-variables.$input-placeholder-color;
 }
 .form-check-input {
-  box-shadow: $box-shadow;
+  box-shadow: scss-variables.$box-shadow;
   margin-top: 0.2rem;
 }
 .form-select {
@@ -75,11 +79,11 @@ select {
   max-height: 2.6rem;
 }
 form.dark-fields .form-control {
-  background: rgba($white, 0.03);
-  border-color: rgba($white, 0.1);
-  color: $gray-300;
+  background: rgba(scss-variables.$white, 0.03);
+  border-color: rgba(scss-variables.$white, 0.1);
+  color: scss-variables.$gray-300;
   &:focus {
-    border-color: rgba($main-color, 0.5);
+    border-color: rgba(variables.$main-color, 0.5);
   }
 }
 .picker {
@@ -108,17 +112,17 @@ form.dark-fields .form-control {
     }
     &[for*="size"] > {
       span {
-        @include font-size(0.7rem);
+        @include rfs.font-size(0.7rem);
         line-height: 1;
         display: grid;
         place-items: center;
         padding: .5rem;
-        background: $border-light;
-        border-radius: $border-radius;
+        background: variables.$border-light;
+        border-radius: scss-variables.$border-radius;
       }
       input:checked ~ span {
-        background-color: $main-color;
-        color: $white;
+        background-color: variables.$main-color;
+        color: scss-variables.$white;
       }
     }
     &[for*="color"] {
@@ -129,7 +133,7 @@ form.dark-fields .form-control {
           font-size: 1px;
           display: grid;
           place-items: center;
-          background: var(--color, $border-light);
+          background: var(--color, variables.$border-light);
           border-radius: 100%;
           color: transparent;
         }

@@ -1,3 +1,6 @@
+@use "../libraries/bootstrap/scss/variables";
+@use "../libraries/bootstrap/scss/vendor/rfs";
+
 //----------------------------------------------------------//
 //	PRICING
 //----------------------------------------------------------//
@@ -29,19 +32,19 @@
       position: relative;
       height: 2.3rem;
       .price-value {
-        @include font-size(2.4rem);
+        @include rfs.font-size(2.4rem);
       }
       .price-currency {
         display: inline-block;
-        @include font-size(1rem);
+        @include rfs.font-size(1rem);
         font-weight: 500;
         padding-right: 0.2rem;
         padding-top: 0.4rem;
       }
       .price-duration {
-        @include font-size(0.8rem);
+        @include rfs.font-size(0.8rem);
         font-weight: 500;
-        color: $body-color;
+        color: variables.$body-color;
         margin-top: auto;
         margin-bottom: 0.25rem;
         &:before {
@@ -88,7 +91,7 @@
   clear: both;
   text-align: center;
   position: relative;
-  background-color: rgba($gray-900, 0.07);
+  background-color: rgba(variables.$gray-900, 0.07);
   border-radius: 1.5rem;
   border: 0.2rem solid transparent;
   -webkit-box-sizing: content-box;
@@ -125,11 +128,11 @@
     border-radius: 100%;
   }
   .pricing-switcher.pricing-switcher-active {
-    color: $white;
+    color: variables.$white;
   }
 }
 .switcher-dark .pricing-switchers {
-  background-color: rgba($white, 0.06);
+  background-color: rgba(variables.$white, 0.06);
 }
 @media (min-width: 992px) {
   .pricing-wrapper .popular .pricing.card {

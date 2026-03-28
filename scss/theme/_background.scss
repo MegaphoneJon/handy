@@ -1,38 +1,42 @@
+@use "../libraries/bootstrap/scss/functions";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../variables";
+
 //----------------------------------------------------------//
 //	BACKGROUND COLORS
 //----------------------------------------------------------//
 @each $color,
-$value in $bg-soft-colors {
+$value in variables.$bg-soft-colors {
   .bg-soft-#{$color} {
-    background-color: tint-color($value, $bg-soft-level) !important;
+    background-color: functions.tint-color($value, variables.$bg-soft-level) !important;
   }
   .text-soft-#{$color} {
-    color: tint-color($value, $bg-soft-level) !important;
+    color: functions.tint-color($value, variables.$bg-soft-level) !important;
   }
 }
 .bg-soft-gray {
-  background: $border-light;
+  background: variables.$border-light;
 }
 @each $color,
-$value in $bg-pale-colors {
+$value in variables.$bg-pale-colors {
   .bg-pale-#{$color} {
-    background-color: tint-color($value, $bg-pale-level) !important;
+    background-color: functions.tint-color($value, variables.$bg-pale-level) !important;
   }
   .text-pale-#{$color} {
-    color: tint-color($value, $bg-pale-level) !important;
+    color: functions.tint-color($value, variables.$bg-pale-level) !important;
   }
 }
 @each $color,
-$value in $bg-soft-colors {
+$value in variables.$bg-soft-colors {
   .bg-gradient-#{$color} {
-    background: linear-gradient(180deg, tint-color($value, $bg-soft-level), rgba($white, 0) 100%);
+    background: linear-gradient(180deg, functions.tint-color($value, variables.$bg-soft-level), rgba(scss-variables.$white, 0) 100%);
   }
   .bg-gradient-reverse-#{$color} {
-    background: linear-gradient(0deg, tint-color($value, $bg-soft-level), rgba($white, 0) 100%);
+    background: linear-gradient(0deg, functions.tint-color($value, variables.$bg-soft-level), rgba(scss-variables.$white, 0) 100%);
   }
 }
 @each $color,
-$value in $colors {
+$value in scss-variables.$colors {
   .wrapper.bg-#{$color}.angled.lower-start:after,
   .wrapper.bg-#{$color}.angled.upper-start:before {
     border-left-color: $value;
@@ -43,19 +47,19 @@ $value in $colors {
   }
   .wrapper.bg-soft-#{$color}.angled.lower-start:after,
   .wrapper.bg-soft-#{$color}.angled.upper-start:before {
-    border-left-color: tint-color($value, $bg-soft-level);
+    border-left-color: functions.tint-color($value, variables.$bg-soft-level);
   }
   .wrapper.bg-soft-#{$color}.angled.lower-end:after,
   .wrapper.bg-soft-#{$color}.angled.upper-end:before {
-    border-right-color: tint-color($value, $bg-soft-level);
+    border-right-color: functions.tint-color($value, variables.$bg-soft-level);
   }
   .wrapper.bg-pale-#{$color}.angled.lower-start:after,
   .wrapper.bg-pale-#{$color}.angled.upper-start:before {
-    border-left-color: tint-color($value, $bg-pale-level);
+    border-left-color: functions.tint-color($value, variables.$bg-pale-level);
   }
   .wrapper.bg-pale-#{$color}.angled.lower-end:after,
   .wrapper.bg-pale-#{$color}.angled.upper-end:before {
-    border-right-color: tint-color($value, $bg-pale-level);
+    border-right-color: functions.tint-color($value, variables.$bg-pale-level);
   }
 }
 .bg-gradient-blend {
@@ -73,45 +77,45 @@ $value in $colors {
 //----------------------------------------------------------//
 // Extra settings for $yellow
 .bg-soft-yellow {
-  background-color: tint-color($yellow, $bg-soft-yellow-level) !important;
+  background-color: functions.tint-color(scss-variables.$yellow, variables.$bg-soft-yellow-level) !important;
 }
 .text-soft-yellow {
-  color: tint-color($yellow, $bg-soft-yellow-level) !important;
+  color: functions.tint-color(scss-variables.$yellow, variables.$bg-soft-yellow-level) !important;
 }
 .bg-gradient-yellow {
-  background: linear-gradient(180deg, tint-color($yellow, $bg-soft-yellow-level), rgba($white, 0) 100%) !important;
+  background: linear-gradient(180deg, functions.tint-color(scss-variables.$yellow, variables.$bg-soft-yellow-level), rgba(scss-variables.$white, 0) 100%) !important;
 }
 .bg-gradient-reverse-yellow {
-  background: linear-gradient(0deg, tint-color($yellow, $bg-soft-yellow-level), rgba($white, 0) 100%) !important;
+  background: linear-gradient(0deg, functions.tint-color(scss-variables.$yellow, variables.$bg-soft-yellow-level), rgba(scss-variables.$white, 0) 100%) !important;
 }
 .wrapper.bg-soft-yellow.angled.lower-start:after,
 .wrapper.bg-soft-yellow.angled.upper-start:before {
-  border-left-color: tint-color($yellow, $bg-soft-yellow-level) !important;
+  border-left-color: functions.tint-color(scss-variables.$yellow, variables.$bg-soft-yellow-level) !important;
 }
 .wrapper.bg-soft-yellow.angled.lower-end:after,
 .wrapper.bg-soft-yellow.angled.upper-end:before {
-  border-right-color: tint-color($yellow, $bg-soft-yellow-level) !important;
+  border-right-color: functions.tint-color(scss-variables.$yellow, variables.$bg-soft-yellow-level) !important;
 }
-@if $primary == $yellow {
+@if scss-variables.$primary == scss-variables.$yellow {
   .bg-soft-primary {
-    background-color: tint-color($main-color, $bg-soft-yellow-level) !important;
+    background-color: functions.tint-color(variables.$main-color, variables.$bg-soft-yellow-level) !important;
   }
   .text-soft-primary {
-    color: tint-color($main-color, $bg-soft-yellow-level) !important;
+    color: functions.tint-color(variables.$main-color, variables.$bg-soft-yellow-level) !important;
   }
   .bg-gradient-primary {
-    background: linear-gradient(180deg, tint-color($main-color, $bg-soft-yellow-level), rgba($white, 0) 100%) !important;
+    background: linear-gradient(180deg, functions.tint-color(variables.$main-color, variables.$bg-soft-yellow-level), rgba(scss-variables.$white, 0) 100%) !important;
   }
   .bg-gradient-reverse-primary {
-    background: linear-gradient(0deg, tint-color($main-color, $bg-soft-yellow-level), rgba($white, 0) 100%) !important;
+    background: linear-gradient(0deg, functions.tint-color(variables.$main-color, variables.$bg-soft-yellow-level), rgba(scss-variables.$white, 0) 100%) !important;
   }
   .wrapper.bg-soft-primary.angled.lower-start:after,
   .wrapper.bg-soft-primary.angled.upper-start:before {
-    border-left-color: tint-color($main-color, $bg-soft-yellow-level) !important;
+    border-left-color: functions.tint-color(variables.$main-color, variables.$bg-soft-yellow-level) !important;
   }
   .wrapper.bg-soft-primary.angled.lower-end:after,
   .wrapper.bg-soft-primary.angled.upper-end:before {
-    border-right-color: tint-color($main-color, $bg-soft-yellow-level) !important;
+    border-right-color: functions.tint-color(variables.$main-color, variables.$bg-soft-yellow-level) !important;
   }
 }
 .bg-height {
@@ -128,8 +132,8 @@ $value in $colors {
   }
 }
 .bg-white-700 {
-  background: rgba($white, 0.7) !important;
+  background: rgba(scss-variables.$white, 0.7) !important;
 }
 .bg-white-900 {
-  background: rgba($white, 0.9) !important;
+  background: rgba(scss-variables.$white, 0.9) !important;
 }

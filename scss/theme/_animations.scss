@@ -1,3 +1,6 @@
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../variables";
+
 //----------------------------------------------------------//
 //	FADEIN ANIMATION
 //----------------------------------------------------------//
@@ -89,7 +92,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: $body-bg;
+  background: scss-variables.$body-bg;
   z-index: 9999;
   transition: 0.5s all;
   &.done {
@@ -109,7 +112,7 @@
   margin-top: -1.25rem;
   margin-left: -1.25rem;
   background: none;
-  border: 4px solid $main-color;
+  border: 4px solid variables.$main-color;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 50%;
@@ -117,7 +120,7 @@
 }
 .bg-dark > .swiper-hero:before,
 .gloader {
-  border-color: $white;
+  border-color: scss-variables.$white;
 }
 //----------------------------------------------------------//
 //	ANIMATE.CSS

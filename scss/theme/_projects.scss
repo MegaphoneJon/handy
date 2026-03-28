@@ -1,3 +1,7 @@
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	PROJECT TILES
 //----------------------------------------------------------//
@@ -51,8 +55,8 @@
 }
 @media (max-width: 991.98px) {
   .projects-overflow .project {
-    box-shadow: $box-shadow !important;
-    border-radius: $border-radius !important;
+    box-shadow: scss-variables.$box-shadow !important;
+    border-radius: scss-variables.$border-radius !important;
   }
   .projects-overflow .project figure img {
     border-bottom-left-radius: 0 !important;
@@ -160,17 +164,17 @@
     z-index: 1;
     transition: all .3s ease-in-out;
     opacity: 0;
-    color: $main-dark;
-    background: rgba($white, 0.7);
-    box-shadow: $box-shadow-sm;
-    @include font-size(1rem);
+    color: variables.$main-dark;
+    background: rgba(scss-variables.$white, 0.7);
+    box-shadow: scss-variables.$box-shadow-sm;
+    @include rfs.font-size(1rem);
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     backface-visibility: hidden;
     &:hover {
-      background: rgba($white, 0.9);
+      background: rgba(scss-variables.$white, 0.9);
     }
   }
   &:hover figure .item-link,
@@ -181,7 +185,7 @@
   }
   figure .item-like,
   figure .item-view {
-    background: $white;
+    background: scss-variables.$white;
   }
   figure .item-like {
     bottom: auto;
@@ -200,23 +204,23 @@
     left: 0;
     width: 100%;
     height: auto;
-    color: $white;
-    background: rgba($dark, 0.8);
+    color: scss-variables.$white;
+    background: rgba(scss-variables.$dark, 0.8);
     backface-visibility: hidden;
     text-align: center;
     transition: all .3s ease-in-out;
-    @include font-size(0.85rem);
+    @include rfs.font-size(0.85rem);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: $headings-font-weight;
+    font-weight: scss-variables.$headings-font-weight;
     i {
       font-weight: normal;
       margin-right: 0.25rem;
       margin-top: -0.05rem;
     }
     &:hover {
-      background: rgba($dark, 0.9);
+      background: rgba(scss-variables.$dark, 0.9);
     }
   }
   &:hover figure .item-cart {
@@ -234,11 +238,11 @@
 .price {
   margin: 0;
   del {
-    color: $ash;
+    color: variables.$ash;
   }
   ins {
     text-decoration: none;
-    color: $red;
+    color: scss-variables.$red;
   }
 }
 .shopping-cart .shopping-cart-item {

@@ -1,11 +1,15 @@
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	NAV
 //----------------------------------------------------------//
 .nav-link {
-  --#{$prefix}nav-link-font-weight: #{$nav-link-font-weight};
-  letter-spacing: $letter-spacing;
+  --#{scss-variables.$prefix}nav-link-font-weight: #{scss-variables.$nav-link-font-weight};
+  letter-spacing: variables.$letter-spacing;
   p {
-    @include font-size($font-size-base);
+    @include rfs.font-size(scss-variables.$font-size-base);
   }
 }
 .sidebar .nav-link {
@@ -20,22 +24,22 @@
     padding-left: 0.6rem;
   }
 }
-@if $primary == $navy {
+@if scss-variables.$primary == variables.$navy {
   .navbar-light .navbar-nav .nav-link:hover,
   .dropdown-item:hover {
-    color: rgba($navy, 0.7);
+    color: rgba(variables.$navy, 0.7);
   }
 }
 //----------------------------------------------------------//
 //	TABS
 //----------------------------------------------------------//
 .nav-tabs .nav-link {
-  background: $nav-tabs-link-active-bg;
-  transition: $link-transition;
-  @include font-size(0.85rem);
+  background: scss-variables.$nav-tabs-link-active-bg;
+  transition: variables.$link-transition;
+  @include rfs.font-size(0.85rem);
   padding: 0.6rem 1.3rem;
   i {
-    @include font-size(1rem);
+    @include rfs.font-size(1rem);
   }
 }
 .nav-tabs.nav-tabs-basic {
@@ -45,26 +49,26 @@
     border-radius: 0;
     border-color: transparent;
     background: transparent;
-    @include font-size(0.85rem);
+    @include rfs.font-size(0.85rem);
     padding: 0.6rem 0;
     margin-right: 1rem;
-    border-bottom: 2px solid rgba($border, 0.25);
+    border-bottom: 2px solid rgba(variables.$border, 0.25);
     &:hover,
     &:focus {
-      border-color: $nav-tabs-link-active-color;
+      border-color: scss-variables.$nav-tabs-link-active-color;
     }
   }
   .nav-link.active,
   .nav-item.show .nav-link {
-    color: $nav-tabs-link-active-color;
-    border-color: $nav-tabs-link-active-color;
+    color: scss-variables.$nav-tabs-link-active-color;
+    border-color: scss-variables.$nav-tabs-link-active-color;
   }
 }
 .nav-tabs.nav-pills {
   border-color: transparent;
   .nav-link {
-    border-color: $nav-tabs-link-hover-border-color;
-    box-shadow: $box-shadow-with-border;
+    border-color: scss-variables.$nav-tabs-link-hover-border-color;
+    box-shadow: variables.$box-shadow-with-border;
     margin-right: 0.5rem;
     display: flex;
     align-items: center;
@@ -91,7 +95,7 @@
   border-color: transparent;
   .nav-link {
     padding: 1.4rem 1.2rem;
-    border-radius: $border-radius;
+    border-radius: scss-variables.$border-radius;
     border: 1px solid transparent;
     line-height: 1.25rem;
     box-shadow: none;
@@ -104,15 +108,15 @@
     }
     &:hover,
     &.active {
-      color: $nav-link-color;
-      border-color: $nav-tabs-link-hover-border-color;
-      background: $nav-tabs-link-active-bg;
-      box-shadow: $box-shadow-with-border;
+      color: scss-variables.$nav-link-color;
+      border-color: scss-variables.$nav-tabs-link-hover-border-color;
+      background: scss-variables.$nav-tabs-link-active-bg;
+      box-shadow: variables.$box-shadow-with-border;
     }
     p {
       margin: 0;
       font-weight: 500;
-      color: $gray-600;
+      color: scss-variables.$gray-600;
     }
   }
 }
@@ -120,7 +124,7 @@
   .nav-link {
     &:hover,
     &.active {
-      box-shadow: $box-shadow-lg;
+      box-shadow: scss-variables.$box-shadow-lg;
     }
   }
 }

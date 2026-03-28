@@ -1,20 +1,24 @@
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	LIGHTBOX
 //----------------------------------------------------------//
 .goverlay {
-  background: $lightbox-bg;
+  background: variables.$lightbox-bg;
 }
 .glightbox-mobile .goverlay {
-  background: $lightbox-bg;
+  background: variables.$lightbox-bg;
 }
 .glightbox-clean {
   .gclose, 
   .gnext, 
   .gprev {
     border: 0;
-    background: $lightbox-icon-bg;
-    color: $lightbox-icon-color;
-    @include font-size(1.2rem);
+    background: variables.$lightbox-icon-bg;
+    color: variables.$lightbox-icon-color;
+    @include rfs.font-size(1.2rem);
     width: 2.2rem;
     height: 2.2rem;
     line-height: 2.2rem;
@@ -30,10 +34,10 @@
   .gprev,
   .gnext {
     &:before {
-      font-family: $font-family-unicons;
+      font-family: variables.$font-family-unicons;
     }
     &:hover {
-      background: $lightbox-icon-hover-bg;
+      background: variables.$lightbox-icon-hover-bg;
     }
     &:after {
       display: none;
@@ -43,23 +47,23 @@
     top: 0.75rem;
     right: 0.75rem;
     &:hover {
-      background: $lightbox-icon-hover-bg;
+      background: variables.$lightbox-icon-hover-bg;
     }
     &:after {
-      font-family: $font-family-unicons;
-      content: $icon-close;
+      font-family: variables.$font-family-unicons;
+      content: variables.$icon-close;
     }
   }
   .gprev {
     left: 0.75rem;
     &:before {
-      content: $icon-prev;
+      content: variables.$icon-prev;
     }
   }
   .gnext {
     right: 0.75rem;
     &:before {
-      content: $icon-next;
+      content: variables.$icon-next;
     }
   }
   .gprev svg,
@@ -89,7 +93,7 @@
     }
     .gslide-title,
     .gslide-desc {
-      color: $white;
+      color: scss-variables.$white;
     }
   }
 }

@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "../libraries/bootstrap/scss/functions";
+@use "../libraries/bootstrap/scss/mixins/transition";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../variables";
+
 //----------------------------------------------------------//
 //	PLYR
 //----------------------------------------------------------//
@@ -5,37 +11,37 @@ video.player {
   max-width: 100%;
 }
 .plyr {
-  border-radius: $border-radius;
+  border-radius: scss-variables.$border-radius;
   position: relative;
   z-index: 2;
 }
 .plyr__control--overlaid {
   border: 0;
   padding: 1.25rem;
-  background: $white;
-  box-shadow: $box-shadow;
-  color: $main-dark;
+  background: scss-variables.$white;
+  box-shadow: scss-variables.$box-shadow;
+  color: variables.$main-dark;
   opacity: 1;
   &:focus,
   &:hover {
-    background: $white !important;
-    color: $main-color !important;
-    box-shadow: $box-shadow;
-    @include transition($link-transition);
+    background: scss-variables.$white !important;
+    color: variables.$main-color !important;
+    box-shadow: scss-variables.$box-shadow;
+    @include transition.transition(variables.$link-transition);
   }
 }
 .plyr--video .plyr__controls {
-  background: linear-gradient(transparent, rgba($gray-900, 0.2));
+  background: linear-gradient(transparent, rgba(scss-variables.$gray-900, 0.2));
   .plyr__control {
     &.plyr__tab-focus,
     &:hover,
     &[aria-expanded="true"] {
-      background: $main-color;
+      background: variables.$main-color;
     }
   }
 }
 .plyr--full-ui input[type="range"] {
-  color: $main-color;
+  color: variables.$main-color;
 }
 .plyr__control--overlaid::before,
 .plyr__control--overlaid::after,
@@ -49,7 +55,7 @@ video.player {
   bottom: 0;
   left: 0;
   border-radius: 50%;
-  background: $white;
+  background: scss-variables.$white;
   opacity: 0.8;
   animation: ripple-1 2s infinite ease-in-out;
   z-index: -1;
@@ -61,9 +67,9 @@ video.player {
   animation-delay: 0.5s;
 }
 @each $color,
-$value in map-merge($button-colors,
-  ("gray": $gray-400,
-    "dark": $main-dark,
+$value in map.merge(variables.$button-colors,
+  ("gray": scss-variables.$gray-400,
+    "dark": variables.$main-dark,
   )) {
   .btn-#{$color}.btn-circle.ripple::before,
   .btn-#{$color}.btn-circle.ripple::after {
@@ -71,9 +77,9 @@ $value in map-merge($button-colors,
   }
 }
 @each $color,
-$value in $button-soft-colors {
+$value in variables.$button-soft-colors {
   .btn-soft-#{$color}.btn-circle.ripple::before,
   .btn-soft-#{$color}.btn-circle.ripple::after {
-    background-color: tint-color($value, $bg-pale-level);
+    background-color: functions.tint-color($value, variables.$bg-pale-level);
   }
 }

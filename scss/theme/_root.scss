@@ -1,3 +1,10 @@
+@use "sass:meta";
+@use "../libraries/bootstrap/scss/functions";
+@use "../libraries/bootstrap/scss/maps";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 // stylelint-disable custom-property-empty-line-before
 
 :root {
@@ -7,70 +14,70 @@
   //
   // Generate palettes for full colors, grays, and theme colors.
 
-  @each $color, $value in $grays {
-    --#{$prefix}gray-#{$color}: #{$value};
+  @each $color, $value in scss-variables.$grays {
+    --#{scss-variables.$prefix}gray-#{$color}: #{$value};
   }
 
-  @each $color, $value in $theme-colors {
-    --#{$prefix}#{$color}: #{$value};
+  @each $color, $value in scss-variables.$theme-colors {
+    --#{scss-variables.$prefix}#{$color}: #{$value};
   }
 
-  @each $color, $value in $theme-colors-rgb {
-    --#{$prefix}#{$color}-rgb: #{$value};
+  @each $color, $value in maps.$theme-colors-rgb {
+    --#{scss-variables.$prefix}#{$color}-rgb: #{$value};
   }
   
-  @each $color, $value in $brand-colors {
-    --#{$prefix}#{$color}: #{$value};
+  @each $color, $value in variables.$brand-colors {
+    --#{scss-variables.$prefix}#{$color}: #{$value};
   }
 
-  --#{$prefix}white-rgb: #{to-rgb($white)};
-  --#{$prefix}black-rgb: #{to-rgb($black)};
-  --#{$prefix}body-color-rgb: #{to-rgb($body-color)};
-  --#{$prefix}body-bg-rgb: #{to-rgb($body-bg)};
+  --#{scss-variables.$prefix}white-rgb: #{functions.to-rgb(scss-variables.$white)};
+  --#{scss-variables.$prefix}black-rgb: #{functions.to-rgb(scss-variables.$black)};
+  --#{scss-variables.$prefix}body-color-rgb: #{functions.to-rgb(scss-variables.$body-color)};
+  --#{scss-variables.$prefix}body-bg-rgb: #{functions.to-rgb(scss-variables.$body-bg)};
 
   // Fonts
 
   // Note: Use `inspect` for lists so that quoted items keep the quotes.
   // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
-  --#{$prefix}font-sans-serif: #{inspect($font-family-sans-serif)};
-  --#{$prefix}font-monospace: #{inspect($font-family-monospace)};
-  --#{$prefix}gradient: #{$gradient};
+  --#{scss-variables.$prefix}font-sans-serif: #{meta.inspect(scss-variables.$font-family-sans-serif)};
+  --#{scss-variables.$prefix}font-monospace: #{meta.inspect(scss-variables.$font-family-monospace)};
+  --#{scss-variables.$prefix}gradient: #{scss-variables.$gradient};
 
   // Root and body
   // scss-docs-start root-body-variables
-  @if $font-size-root != null {
-    --#{$prefix}root-font-size: #{$font-size-root};
+  @if scss-variables.$font-size-root != null {
+    --#{scss-variables.$prefix}root-font-size: #{scss-variables.$font-size-root};
   }
-  --#{$prefix}body-font-family: #{$font-family-base};
-  @include rfs($font-size-base, --#{$prefix}body-font-size);
-  --#{$prefix}body-font-weight: #{$font-weight-base};
-  --#{$prefix}body-line-height: #{$line-height-base};
-  --#{$prefix}body-color: #{$body-color};
-  @if $body-text-align != null {
-    --#{$prefix}body-text-align: #{$body-text-align};
+  --#{scss-variables.$prefix}body-font-family: #{scss-variables.$font-family-base};
+  @include rfs.rfs(scss-variables.$font-size-base, --#{scss-variables.$prefix}body-font-size);
+  --#{scss-variables.$prefix}body-font-weight: #{scss-variables.$font-weight-base};
+  --#{scss-variables.$prefix}body-line-height: #{scss-variables.$line-height-base};
+  --#{scss-variables.$prefix}body-color: #{scss-variables.$body-color};
+  @if scss-variables.$body-text-align != null {
+    --#{scss-variables.$prefix}body-text-align: #{scss-variables.$body-text-align};
   }
-  --#{$prefix}body-bg: #{$body-bg};
+  --#{scss-variables.$prefix}body-bg: #{scss-variables.$body-bg};
   // scss-docs-end root-body-variables
 
   // scss-docs-start root-border-var
-  --#{$prefix}border-width: #{$border-width};
-  --#{$prefix}border-style: #{$border-style};
-  --#{$prefix}border-color: #{$border-color};
-  --#{$prefix}border-color-translucent: #{$border-color-translucent};
+  --#{scss-variables.$prefix}border-width: #{scss-variables.$border-width};
+  --#{scss-variables.$prefix}border-style: #{scss-variables.$border-style};
+  --#{scss-variables.$prefix}border-color: #{scss-variables.$border-color};
+  --#{scss-variables.$prefix}border-color-translucent: #{scss-variables.$border-color-translucent};
 
-  --#{$prefix}border-radius: #{$border-radius};
-  --#{$prefix}border-radius-sm: #{$border-radius-sm};
-  --#{$prefix}border-radius-lg: #{$border-radius-lg};
-  --#{$prefix}border-radius-xl: #{$border-radius-xl};
-  --#{$prefix}border-radius-2xl: #{$border-radius-2xl};
-  --#{$prefix}border-radius-pill: #{$border-radius-pill};
+  --#{scss-variables.$prefix}border-radius: #{scss-variables.$border-radius};
+  --#{scss-variables.$prefix}border-radius-sm: #{scss-variables.$border-radius-sm};
+  --#{scss-variables.$prefix}border-radius-lg: #{scss-variables.$border-radius-lg};
+  --#{scss-variables.$prefix}border-radius-xl: #{scss-variables.$border-radius-xl};
+  --#{scss-variables.$prefix}border-radius-2xl: #{scss-variables.$border-radius-2xl};
+  --#{scss-variables.$prefix}border-radius-pill: #{scss-variables.$border-radius-pill};
   // scss-docs-end root-border-var
 
-  --#{$prefix}heading-color: #{$headings-color};
-  --#{$prefix}link-color: #{$link-color};
-  --#{$prefix}link-hover-color: #{$link-hover-color};
+  --#{scss-variables.$prefix}heading-color: #{scss-variables.$headings-color};
+  --#{scss-variables.$prefix}link-color: #{scss-variables.$link-color};
+  --#{scss-variables.$prefix}link-hover-color: #{scss-variables.$link-hover-color};
 
-  --#{$prefix}code-color: #{$code-color};
+  --#{scss-variables.$prefix}code-color: #{scss-variables.$code-color};
 
-  --#{$prefix}highlight-bg: #{$mark-bg};
+  --#{scss-variables.$prefix}highlight-bg: #{scss-variables.$mark-bg};
 }

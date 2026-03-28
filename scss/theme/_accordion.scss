@@ -1,3 +1,8 @@
+@use "../libraries/bootstrap/scss/mixins/transition";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	ACCORDION
 //----------------------------------------------------------//
@@ -35,32 +40,32 @@
       text-align: left;
       margin: 0;
       border: 0;
-      @include font-size(0.85rem);
-      font-weight: $font-weight-bold;
-      color: $main-color;
-      @include transition(all 150ms ease-in-out);
+      @include rfs.font-size(0.85rem);
+      font-weight: scss-variables.$font-weight-bold;
+      color: variables.$main-color;
+      @include transition.transition(all 150ms ease-in-out);
       background: none;
       &:before {
-        font-family: $font-family-unicons;
+        font-family: variables.$font-family-unicons;
         position: absolute;
         left: 1.3rem;
-        content: $icon-caret-up;
-        @include font-size(1.15rem);
+        content: variables.$icon-caret-up;
+        @include rfs.font-size(1.15rem);
         font-weight: normal;
         width: 1rem;
         margin-top: -0.25rem;
         margin-left: -0.3rem;
         display: inline-block;
-        color: $main-color;
+        color: variables.$main-color;
       }
       &.collapsed {
-        color: $main-dark;
+        color: variables.$main-dark;
         &:before {
-          content: $icon-caret-down;
+          content: variables.$icon-caret-down;
         }
       }
       &:hover {
-        color: $main-color;
+        color: variables.$main-color;
       }
     }
   }
@@ -83,7 +88,7 @@
       position: absolute;
       left: 1.3rem;
       i {
-        @include font-size(1rem);
+        @include rfs.font-size(1rem);
       }
     }
   }
@@ -92,13 +97,13 @@
 //	COLLAPSE
 //----------------------------------------------------------//
 .collapse-link {
-  @include font-size(0.85rem);
-  font-weight: $font-weight-bold;
-  color: $main-color;
+  @include rfs.font-size(0.85rem);
+  font-weight: scss-variables.$font-weight-bold;
+  color: variables.$main-color;
   &:before {
-    font-family: $font-family-unicons;
-    content: $icon-caret-up;
-    @include font-size(1.15rem);
+    font-family: variables.$font-family-unicons;
+    content: variables.$icon-caret-up;
+    @include rfs.font-size(1.15rem);
     font-weight: normal;
     width: 1rem;
     margin-left: -0.3rem;
@@ -107,16 +112,16 @@
     vertical-align: -4px;
   }
   &.collapsed {
-    color: $main-dark;
+    color: variables.$main-dark;
     &:before {
-      content: $icon-caret-down;
+      content: variables.$icon-caret-down;
     }
   }
   &:hover {
-    color: $main-color;
+    color: variables.$main-color;
   }
 }
 .accordion-collapse > .card-footer {
-  background: $pre-bg;
+  background: variables.$pre-bg;
   padding: 0;
 }

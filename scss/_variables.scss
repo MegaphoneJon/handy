@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:map";
+@use "libraries/bootstrap/scss/functions";
+
 //----------------------------------------------------------//
 //	OPTIONS
 //----------------------------------------------------------//
@@ -11,7 +15,7 @@ $enable-negative-margins: true !default;
 //----------------------------------------------------------//
 $spacer: 1rem !default;
 $spacers: () !default;
-$spacers: map-merge(
+$spacers: map.merge(
   (
     0: 0,
     1: ($spacer * 0.25), // 5px
@@ -42,7 +46,7 @@ $spacers: map-merge(
   ),
   $spacers
 );
-$negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
+$negative-spacers: if($enable-negative-margins, functions.negativify-map($spacers), null) !default;
 //----------------------------------------------------------//
 //	COLOR SYSTEM
 //----------------------------------------------------------//
@@ -109,7 +113,7 @@ $colors: (
    "danger": $danger,
 ) !default;
 
-$theme-colors: map-merge($colors,
+$theme-colors: map.merge($colors,
   ("secondary": $secondary,
     "primary": $primary,
     "success": $success,
@@ -118,13 +122,13 @@ $theme-colors: map-merge($colors,
     "danger": $danger,
     "tertiary": $tertiary,
   ));
-$text-colors: map-remove($colors, "dark") !default;
-$link-colors: map-remove($colors, "dark") !default;
-$button-colors: map-remove($colors, "gray") !default;
-$button-soft-colors: map-remove($colors, "white", "light", "gray") !default;
-$bg-pale-colors: map-remove($colors, "white", "light", "gray") !default;
-$bg-soft-colors: map-remove($colors, "white", "light", "yellow") !default;
-$bullet-colors: map-remove($colors, "yellow") !default;
+$text-colors: map.remove($colors, "dark") !default;
+$link-colors: map.remove($colors, "dark") !default;
+$button-colors: map.remove($colors, "gray") !default;
+$button-soft-colors: map.remove($colors, "white", "light", "gray") !default;
+$bg-pale-colors: map.remove($colors, "white", "light", "gray") !default;
+$bg-soft-colors: map.remove($colors, "white", "light", "yellow") !default;
+$bullet-colors: map.remove($colors, "yellow") !default;
 $main-color: $primary !default;
 $main-dark: $dark !default;
 $bg-soft-level: 90.5% !default;
@@ -448,11 +452,11 @@ $form-label-color: $gray-500 !default;
 $input-color: $gray-600 !default;
 $input-border-width: $input-btn-border-width !default;
 $input-height-border: $input-border-width * 2 !default;
-$input-height: add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false)) !default;
-$input-height-sm: add($input-line-height * 1em, add($input-padding-y-sm * 2, $input-height-border, false)) !default;
+$input-height: functions.add($input-line-height * 1em, functions.add($input-padding-y * 2, $input-height-border, false)) !default;
+$input-height-sm: functions.add($input-line-height * 1em, functions.add($input-padding-y-sm * 2, $input-height-border, false)) !default;
 $input-border-color: rgba($shadow-border, 0.5) !default;
 $input-box-shadow: $box-shadow !default;
-$input-focus-border-color: tint-color($component-active-bg, 50%) !default;
+$input-focus-border-color: functions.tint-color($component-active-bg, 50%) !default;
 $input-focus-box-shadow: unset !default;
 $input-placeholder-color: $gray-500 !default;
 $input-border-radius: $border-radius !default;
@@ -483,7 +487,7 @@ $form-select-bg-size: 20px 20px !default;
 $form-select-indicator-color: $body-color !default;
 $form-select-indicator: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='#{$form-select-indicator-color}' d='M22.667 12.227c-0.241-0.24-0.573-0.388-0.94-0.388s-0.699 0.148-0.94 0.388l0-0-4.787 4.72-4.72-4.72c-0.241-0.24-0.573-0.388-0.94-0.388s-0.699 0.148-0.94 0.388l0-0c-0.244 0.242-0.394 0.577-0.394 0.947s0.151 0.705 0.394 0.947l5.653 5.653c0.242 0.244 0.577 0.394 0.947 0.394s0.705-0.151 0.947-0.394l0-0 5.72-5.653c0.244-0.242 0.394-0.577 0.394-0.947s-0.151-0.705-0.394-0.947l-0-0z'%3E%3C/path%3E%3C/svg%3E") !default;
 $form-select-bg-position: right $form-select-padding-x - 0.25rem center !default;
-$form-floating-height: add(2.5rem, $input-height-border) !default;
+$form-floating-height: functions.add(2.5rem, $input-height-border) !default;
 $form-floating-line-height: 1.25 !default;
 $form-floating-padding-x: $input-padding-x !default;
 $form-floating-padding-y: $input-padding-y !default;
@@ -495,7 +499,7 @@ $form-feedback-valid-color: $feedback-success !default;
 $form-feedback-invalid-color: $feedback-danger !default;
 $form-feedback-icon-valid-color: $form-feedback-valid-color !default;
 $form-feedback-font-size: $font-size-sm !default;
-$input-height-inner-half: add($input-line-height * .25em, $input-padding-y) !default;
+$input-height-inner-half: functions.add($input-line-height * .25em, $input-padding-y) !default;
 $form-feedback-icon-valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='#{$form-feedback-icon-valid-color}' d='M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z'/%3E%3C/svg%3E") !default;
 $form-select-indicator-padding: $form-select-padding-x * 2 !default;
 $form-select-feedback-icon-position: center right $form-select-indicator-padding !default;
@@ -657,7 +661,7 @@ $popover-max-width: 276px !default;
 $popover-border-width: $border-width !default;
 $popover-border-color: $border-light !default;
 $popover-border-radius: $border-radius !default;
-$popover-inner-border-radius: subtract($popover-border-radius,
+$popover-inner-border-radius: functions.subtract($popover-border-radius,
   $popover-border-width) !default;
 $popover-box-shadow: $box-shadow !default;
 $popover-header-bg: $popover-bg !default;
@@ -670,7 +674,7 @@ $popover-body-padding-x: 1.25rem !default;
 $popover-arrow-width: 1rem !default;
 $popover-arrow-height: 0.5rem !default;
 $popover-arrow-color: $popover-bg !default;
-$popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;
+$popover-arrow-outer-color: color.adjust($popover-border-color, $alpha: 0.05) !default;
 //----------------------------------------------------------//
 //	BADGE
 //----------------------------------------------------------//

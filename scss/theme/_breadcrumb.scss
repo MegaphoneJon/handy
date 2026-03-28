@@ -1,52 +1,57 @@
+@use "../libraries/bootstrap/scss/mixins/border-radius";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	BREADCRUMB
 //----------------------------------------------------------//
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
-  margin-bottom: $breadcrumb-margin-bottom;
-  @include font-size($breadcrumb-font-size);
+  padding: scss-variables.$breadcrumb-padding-y scss-variables.$breadcrumb-padding-x;
+  margin-bottom: scss-variables.$breadcrumb-margin-bottom;
+  @include rfs.font-size(scss-variables.$breadcrumb-font-size);
   list-style: none;
-  background-color: $breadcrumb-bg;
-  @include border-radius($breadcrumb-border-radius);
+  background-color: scss-variables.$breadcrumb-bg;
+  @include border-radius.border-radius(scss-variables.$breadcrumb-border-radius);
 }
 .breadcrumb-item {
   display: flex;
-  color: $breadcrumb-color;
+  color: variables.$breadcrumb-color;
   a {
     color: inherit;
     &:hover {
-      color: $breadcrumb-hover-color;
+      color: variables.$breadcrumb-hover-color;
     }
   }
   + .breadcrumb-item {
-    padding-left: $breadcrumb-item-padding-x;
+    padding-left: scss-variables.$breadcrumb-item-padding-x;
     &::before {
-      font-family: $font-family-unicons;
+      font-family: variables.$font-family-unicons;
       font-weight: normal;
       display: flex;
       align-items: center;
-      padding-right: $breadcrumb-item-padding-x;
-      color: $breadcrumb-divider-color;
-      content: $icon-caret-end;
+      padding-right: scss-variables.$breadcrumb-item-padding-x;
+      color: scss-variables.$breadcrumb-divider-color;
+      content: variables.$icon-caret-end;
       margin-top: -1px;
-      @include font-size(0.9rem);
+      @include rfs.font-size(0.9rem);
     }
   }
 }
 .breadcrumb.text-white .breadcrumb-item {
   &:hover,
   &.active {
-    color: $white;
+    color: scss-variables.$white;
   }
 }
 .breadcrumb.text-white .breadcrumb-item a {
-  color: $white;
+  color: scss-variables.$white;
   &:hover {
-    border-color: $white;
+    border-color: scss-variables.$white;
   }
 }
 .breadcrumb.text-white .breadcrumb-item + .breadcrumb-item::before {
-  color: rgba($white, 0.5);
+  color: rgba(scss-variables.$white, 0.5);
 }

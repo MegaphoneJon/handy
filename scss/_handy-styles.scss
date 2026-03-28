@@ -1,3 +1,7 @@
+@use "libraries/bootstrap/scss/variables" as scss-variables;
+@use "theme/mixins";
+@use "variables";
+
 $color_1: white;
 $color_2: #cacaca;
 $color_3: #fff;
@@ -13,7 +17,7 @@ $background-color_2: black;
 $border-color_1: #4a90e2;
 
 body {
-  font-size: $font-size-base !important;
+  font-size: scss-variables.$font-size-base !important;
   margin-top: 0;
 }
 ol.process-3 {
@@ -22,7 +26,7 @@ ol.process-3 {
 
 /**! Typography **/
 h1 {
-  font-size: $h1-font-size;
+  font-size: scss-variables.$h1-font-size;
   &:not(:last-child) {
     margin-bottom: 1.25rem;
   }
@@ -197,23 +201,23 @@ ul.list-inline {
 }
 
 .fs-lg {
-  font-size: $font-size-lg;
+  font-size: scss-variables.$font-size-lg;
   & > a {
-    font-size: $font-size-lg;
+    font-size: scss-variables.$font-size-lg;
   }
 }
 
 .fs-sm {
-  font-size: $font-size-sm;
+  font-size: scss-variables.$font-size-sm;
   & > a {
-    font-size: $font-size-sm;
+    font-size: scss-variables.$font-size-sm;
   }
 }
 
 .fs-base {
-  font-size: $font-size-base;
+  font-size: scss-variables.$font-size-base;
   & > a {
-    font-size: $font-size-base;
+    font-size: scss-variables.$font-size-base;
   }
 }
 
@@ -469,8 +473,8 @@ table {
   .dropdown-menu {
     .nav-item a:hover {
       &:before {
-        @include caret-end();
-        font-family: $font-family-unicons;
+        @include mixins.caret-end();
+        font-family: variables.$font-family-unicons;
         position: absolute;
         left: 10px;
       }

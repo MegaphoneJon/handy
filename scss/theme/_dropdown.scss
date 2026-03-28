@@ -1,3 +1,10 @@
+@use "sass:map";
+@use "../libraries/bootstrap/scss/mixins/breakpoints";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+@use "mixins";
+
 //----------------------------------------------------------//
 //	DROPDOWN
 //----------------------------------------------------------//
@@ -5,8 +12,8 @@
   border: 0;
 }
 .dropdown-item {
-  font-weight: $nav-link-font-weight;
-  letter-spacing: $letter-spacing;
+  font-weight: scss-variables.$nav-link-font-weight;
+  letter-spacing: variables.$letter-spacing;
   &:hover,
   &:focus {
     outline: 0;
@@ -15,7 +22,7 @@
 .dropdown-header {
   padding-top: 0;
   text-transform: uppercase;
-  letter-spacing: $letter-spacing-lg;
+  letter-spacing: variables.$letter-spacing-lg;
 }
 //----------------------------------------------------------//
 //	NAVBAR DROPDOWN
@@ -26,11 +33,11 @@
   }
 }
 .navbar-expand {
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint, $grid-breakpoints);
-    $infix: breakpoint-infix($next, $grid-breakpoints);
+  @each $breakpoint in map.keys(scss-variables.$grid-breakpoints) {
+    $next: breakpoints.breakpoint-next($breakpoint, scss-variables.$grid-breakpoints);
+    $infix: breakpoints.breakpoint-infix($next, scss-variables.$grid-breakpoints);
     &#{$infix} {
-      @include media-breakpoint-down($next) {
+      @include breakpoints.media-breakpoint-down($next) {
         .offcanvas-nav {
           overflow-x: hidden;
           overflow-y: auto;
@@ -51,7 +58,7 @@
             margin-top: 0;
             background: none;
             .dropdown-item {
-              color: $navbar-dark-color;
+              color: scss-variables.$navbar-dark-color;
               padding-left: 1rem;
               padding-top: 0.3rem;
               padding-bottom: 0.3rem;
@@ -62,7 +69,7 @@
           .nav-link.active,
           .nav-link:hover,
           .nav-link:focus {
-            color: $navbar-dark-color !important;
+            color: scss-variables.$navbar-dark-color !important;
           }
           .nav-link {
             padding-top: 0.3rem;
@@ -74,7 +81,7 @@
               margin-right: 0;
               right: -0.25rem;
               top: 0.35rem;
-              @include font-size(0.9rem);
+              @include rfs.font-size(0.9rem);
             }
           }
           .dropdown-submenu .dropdown-toggle:after {
@@ -88,12 +95,12 @@
         }
         .dropstart .dropdown-toggle:after,
         .dropend .dropdown-toggle:after {
-          content: $icon-caret-down !important;
+          content: variables.$icon-caret-down !important;
         }
         .dropstart {
           .dropdown-menu[data-bs-popper] {
             margin-right: 0;
-            margin-left: $dropdown-spacer;
+            margin-left: scss-variables.$dropdown-spacer;
           }
         }
         .dropdown-toggle:after {
@@ -105,10 +112,10 @@
           }
         }
         .navbar-other .nav-item.language-select .nav-link {
-          @include font-size(1.05rem);
+          @include rfs.font-size(1.05rem);
         }
         .navbar-other .nav-item .nav-link>i {
-          @include font-size(1.3rem);
+          @include rfs.font-size(1.3rem);
         }
         .navbar-brand {
           padding-top: 1.2rem;
@@ -135,10 +142,10 @@
       }
     }
     &#{$infix} {
-      @include media-breakpoint-up($next) {
+      @include breakpoints.media-breakpoint-up($next) {
         &.navbar-light .dropdown:not(.dropdown-submenu) {
           & > .dropdown-toggle:after {
-            color: $main-color;
+            color: variables.$main-color;
           }
         }
         .navbar-nav,
@@ -171,9 +178,9 @@
               &:after {
                 position: absolute;
                 margin-right: 0;
-                right: $dropdown-item-padding-x - 0.5rem;
+                right: scss-variables.$dropdown-item-padding-x - 0.5rem;
                 top: .15rem;
-                @include font-size($caret-size);
+                @include rfs.font-size(variables.$caret-size);
               }
             }
             &.mega-menu {
@@ -199,7 +206,7 @@
                   pointer-events: all;
                   visibility: visible;
                   opacity: 1;
-                  transition: $dropdown-transition;
+                  transition: variables.$dropdown-transition;
                 }
               }
             }
@@ -223,7 +230,7 @@
                   pointer-events: all;
                   visibility: visible;
                   opacity: 1;
-                  transition: $dropdown-transition;
+                  transition: variables.$dropdown-transition;
                 }
               }
             }
@@ -264,9 +271,9 @@
         }
         &.extended .navbar-collapse-wrapper,
         &.fancy .navbar-collapse-wrapper {
-          box-shadow: $box-shadow-sm;
+          box-shadow: scss-variables.$box-shadow-sm;
           width: 100%;
-          border-radius: $border-radius;
+          border-radius: scss-variables.$border-radius;
         }
         &.extended:not(.extended-alt):not(.fixed) .navbar-collapse-wrapper {
           padding: 0 1.5rem 0 0.5rem;
@@ -312,25 +319,25 @@
         }
         .mega-menu-content>.row>[class*="col-"]+[class*="col-"],
         .dropdown-lg-content>div+div {
-          border-left: 1px solid $border-light;
+          border-left: 1px solid variables.$border-light;
         }
         .mega-menu-content {
           padding: 0.6rem 0.25rem 0.2rem;
         }
         .mega-menu-dark {
-          background: $dropdown-dark-bg;
+          background: scss-variables.$dropdown-dark-bg;
           .img-svg {
-            background: rgba($white, 0.05);
-            transition: $btn-transition;
+            background: rgba(scss-variables.$white, 0.05);
+            transition: scss-variables.$btn-transition;
             &:hover {
-              background: rgba($white, 0.09);
+              background: rgba(scss-variables.$white, 0.09);
             }
           }
           .dropdown-item {
-            color: $navbar-dark-color;
+            color: scss-variables.$navbar-dark-color;
             &:hover,
             &:focus {
-              color: $navbar-dark-color;
+              color: scss-variables.$navbar-dark-color;
             }
           }
         }
@@ -368,7 +375,7 @@
   .mega-menu-scroll {
     overflow-y: scroll;
     & > span {
-      @include font-size(0.7rem);
+      @include rfs.font-size(0.7rem);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -378,9 +385,9 @@
       bottom: 0.3rem;
       left: 0;
       text-align: center;
-      color: $dropdown-dark-link-color;
+      color: scss-variables.$dropdown-dark-link-color;
       i {
-        @include font-size(1rem);
+        @include rfs.font-size(1rem);
       }
     }
   }
@@ -430,7 +437,7 @@
     transform: translateX(-50%) !important;
     top: 100% !important;
     margin-top: 0.5rem !important;
-    padding: $dropdown-padding-y-sm $dropdown-padding-x;
+    padding: variables.$dropdown-padding-y-sm scss-variables.$dropdown-padding-x;
     position: absolute;
     min-width: 4rem;
   }
@@ -449,12 +456,12 @@
   }
   .dropdown-item {
     padding: 0.25rem 1.15rem;
-    @include font-size(0.7rem);
+    @include rfs.font-size(0.7rem);
     i {
       padding-right: 0.4rem;
       vertical-align: -0.1rem;
       width: 1rem;
-      @include font-size(0.8rem);
+      @include rfs.font-size(0.8rem);
     }
   }
 }
@@ -466,16 +473,16 @@
     outline: 0;
   }
   &:after {
-    @include font-size($caret-size);
+    @include rfs.font-size(variables.$caret-size);
     margin-right: -.25rem;
   }
 }
 .navbar-light .language-select .dropdown-toggle:after {
-  color: $main-color
+  color: variables.$main-color
 }
 .share-dropdown .dropdown-toggle:after {
   display: none;
 }
 .navbar-nav .dropdown.dropstart > .dropdown-toggle:after {
-  @include caret-end();
+  @include mixins.caret-end();
 }

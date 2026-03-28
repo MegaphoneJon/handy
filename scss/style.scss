@@ -6,37 +6,37 @@ Author:		elemis
 */
 
 // Bootstrap Functions
-@import "./libraries/bootstrap/scss/functions";
+@use "libraries/bootstrap/scss/functions";
 
 // Theme colors
-@import "theme-colors";
+@use "theme-colors";
 
 // User variables
-@import 'user-variables';
+@use 'user-variables';
 
 // Theme variables
-@import "variables";
+@use "variables";
 
 // Bootstrap configuration
-@import "./libraries/bootstrap/scss/variables";
-@import "./libraries/bootstrap/scss/variables-dark";
-@import "./libraries/bootstrap/scss/maps";
-@import "./libraries/bootstrap/scss/mixins";
-@import "./libraries/bootstrap/scss/utilities";
+@use "libraries/bootstrap/scss/variables" as variables2;
+@use "libraries/bootstrap/scss/variables-dark";
+@use "libraries/bootstrap/scss/maps";
+@use "libraries/bootstrap/scss/mixins";
+@use "libraries/bootstrap/scss/utilities";
 
 // Theme configuration
-@import "theme/functions";
-@import "theme/mixins";
-@import "theme/utilities";
-@import "theme/root";
+@use "theme/functions" as functions2;
+@use "theme/mixins" as mixins2;
+@use "theme/utilities" as utilities2;
+@use "theme/root";
 
 // Bootstrap layout & components
-@import "bootstrap";
+@use "bootstrap";
 
 // Theme layout & components
-@import "theme/theme";
+@use "theme/theme";
 
 
 // Handy custom styles
-@import "handy-styles";
-@import "overrides";
+@use "handy-styles";
+@use "overrides";

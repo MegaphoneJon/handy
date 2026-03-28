@@ -1,11 +1,14 @@
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../variables";
+
 //----------------------------------------------------------//
 //	COLORED LINKS
 //----------------------------------------------------------//
 @each $color,
-$value in $link-colors {
+$value in variables.$link-colors {
   .link-#{$color} {
     color: $value;
-    @if $link-shade-percentage !=0 {
+    @if scss-variables.$link-shade-percentage !=0 {
       &:hover,
       &:focus {
         color: $value;
@@ -14,5 +17,5 @@ $value in $link-colors {
   }
 }
 .link-dark {
-  color: $main-dark;
+  color: variables.$main-dark;
 }

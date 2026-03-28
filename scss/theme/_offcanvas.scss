@@ -1,3 +1,7 @@
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	OFFCANVAS
 //----------------------------------------------------------//
@@ -9,13 +13,13 @@
   height: auto;
   .search-form {
     &:before {
-      @include font-size(1rem);
-      color: $main-dark;
+      @include rfs.font-size(1rem);
+      color: variables.$main-dark;
       left: 0;
       right: auto;
     }
     .form-control {
-      @include font-size(0.8rem);
+      @include rfs.font-size(0.8rem);
       border: 0;
       background: none;
       box-shadow: none;
@@ -27,8 +31,8 @@
 .offcanvas {
   @extend .scrollbar-hidden;
   &.bg-light {
-    background: $light;
-    color: $body-color;
+    background: scss-variables.$light;
+    color: scss-variables.$body-color;
   }
 }
 .offcanvas-header {
@@ -67,5 +71,5 @@
   display: flex;
   flex-shrink: 0;
   margin-top: auto;
-  padding: $offcanvas-padding-y 0;
+  padding: scss-variables.$offcanvas-padding-y 0;
 }

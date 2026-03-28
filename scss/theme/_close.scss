@@ -1,21 +1,26 @@
+@use "../libraries/bootstrap/scss/mixins/transition";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+
 //----------------------------------------------------------//
 //	CLOSE BUTTON
 //----------------------------------------------------------//
 .btn-close {
-  padding: $btn-close-padding-y $btn-close-padding-x;
-  color: $btn-close-color;
+  padding: scss-variables.$btn-close-padding-y scss-variables.$btn-close-padding-x;
+  color: scss-variables.$btn-close-color;
   background: none;
   border: 0;
   line-height: 1;
-  @include transition($btn-transition);
+  @include transition.transition(scss-variables.$btn-transition);
   &:before {
-    background: $btn-close-bg;
-    font-family: $font-family-unicons;
-    @include font-size($btn-close-font-size);
-    content: $icon-close;
-    width: $btn-close-width;
-    height: $btn-close-height;
-    line-height: $btn-close-height;
+    background: scss-variables.$btn-close-bg;
+    font-family: variables.$font-family-unicons;
+    @include rfs.font-size(variables.$btn-close-font-size);
+    content: variables.$icon-close;
+    width: scss-variables.$btn-close-width;
+    height: scss-variables.$btn-close-height;
+    line-height: scss-variables.$btn-close-height;
     border-radius: 100%;
     margin: 0;
     padding: 0;
@@ -26,10 +31,10 @@
     align-items: center;
   }
   &:hover {
-    color: $btn-close-hover-color;
+    color: variables.$btn-close-hover-color;
     text-decoration: none;
     &:before {
-      background: $btn-close-hover-bg;
+      background: variables.$btn-close-hover-bg;
     }
   }
   &:focus {
@@ -39,18 +44,18 @@
   &.disabled {
     pointer-events: none;
     user-select: none;
-    opacity: $btn-close-disabled-opacity;
+    opacity: scss-variables.$btn-close-disabled-opacity;
   }
 }
 .btn-close-white {
-  color: $btn-close-light-color;
+  color: variables.$btn-close-light-color;
   &:before {
-    background: $btn-close-light-bg;
+    background: variables.$btn-close-light-bg;
   }
   &:hover {
-    color: $btn-close-light-hover-color;
+    color: variables.$btn-close-light-hover-color;
     &:before {
-      background: $btn-close-light-hover-bg;
+      background: variables.$btn-close-light-hover-bg;
     }
   }
 }

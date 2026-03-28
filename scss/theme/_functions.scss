@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "sass:string";
+@use "../libraries/bootstrap/scss/functions";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../variables";
+
 //----------------------------------------------------------//
 //	FUNCTIONS
 //----------------------------------------------------------//
@@ -8,7 +14,7 @@
   @each $key,
   $value in $map {
     @if $key !=0 {
-      $result: map-merge($result, ("n"+ $key: -#{$value}));
+      $result: map.merge($result, ("n"+ $key: -#{$value}));
     }
   }
   @return $result;
@@ -19,11 +25,11 @@
   $color-contrast-dark: $color-contrast-dark,
   $color-contrast-light: $color-contrast-light,
   $min-contrast-ratio: $min-contrast-ratio) {
-  $foregrounds: $color-contrast-light, $color-contrast-dark, $white, $main-dark;
+  $foregrounds: $color-contrast-light, $color-contrast-dark, scss-variables.$white, variables.$main-dark;
   $max-ratio: 0;
   $max-ratio-color: null;
   @each $color in $foregrounds {
-    $contrast-ratio: contrast-ratio($background, $color);
+    $contrast-ratio: functions.contrast-ratio($background, $color);
     @if $contrast-ratio > $min-contrast-ratio {
       @return $color;
     }
@@ -37,5 +43,5 @@
 }
 // URL Friendly Color
 @function url-color($colour) {
-  @return '%23' + str-slice('#{$colour}', 2, -1)
+  @return '%23' + string.slice('#{$colour}', 2, -1)
 }

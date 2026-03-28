@@ -1,3 +1,11 @@
+@use "../libraries/bootstrap/scss/functions" as scss-functions;
+@use "../libraries/bootstrap/scss/mixins/border-radius";
+@use "../libraries/bootstrap/scss/mixins/transition";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../libraries/bootstrap/scss/vendor/rfs";
+@use "../variables";
+@use "functions";
+
 //----------------------------------------------------------//
 //	IMPORT GOOGLE FONTS
 //----------------------------------------------------------//
@@ -15,24 +23,24 @@ body {
 //	HR
 //----------------------------------------------------------//
 hr.dark {
-  color: rgba($border, 0.25);
+  color: rgba(variables.$border, 0.25);
 }
 //----------------------------------------------------------//
 //	SELECTION
 //----------------------------------------------------------//
 ::-moz-selection {
-  background: rgba($main-color, 0.7);
-  color: $white;
+  background: rgba(variables.$main-color, 0.7);
+  color: scss-variables.$white;
 }
 ::selection {
-  background: rgba($main-color, 0.7);
-  color: $white;
+  background: rgba(variables.$main-color, 0.7);
+  color: scss-variables.$white;
 }
 //----------------------------------------------------------//
 //	LINKS
 //----------------------------------------------------------//
 a {
-  @include transition($btn-transition);
+  @include transition.transition(scss-variables.$btn-transition);
   &:focus {
     outline: 0;
   }
@@ -72,7 +80,7 @@ a.hover-2 {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: tint-color($main-color, $bg-pale-level);
+    background: scss-functions.tint-color(variables.$main-color, variables.$bg-pale-level);
     top: 0;
     left: 0;
     pointer-events: none;
@@ -108,8 +116,8 @@ a.hover-3 {
     height: 3px;
     left: 0;
     bottom: -3px;
-    background-color: tint-color($main-color, $bg-pale-level);
-    transition: $link-transition2;
+    background-color: scss-functions.tint-color(variables.$main-color, variables.$bg-pale-level);
+    transition: variables.$link-transition2;
   }
   &:hover {
     &.link-body {
@@ -129,15 +137,15 @@ a.hover-3 {
   }
 }
 @each $color,
-$value in $colors {
+$value in scss-variables.$colors {
   a.hover-2.link-#{$color}:before {
     background: $value;
   }
 }
 @each $color,
-$value in $colors {
+$value in scss-variables.$colors {
   a.hover-3.link-#{$color}:before {
-   background-color: tint-color($value, $bg-pale-level);
+   background-color: scss-functions.tint-color($value, variables.$bg-pale-level);
   }
 }
 .text-reset a {
@@ -146,16 +154,16 @@ $value in $colors {
 .link-dark:hover,
 a.text-reset:hover,
 .text-reset a:hover {
-  color: $link-color !important;
+  color: scss-variables.$link-color !important;
 }
 [class*="text-"] .text-reset:hover {
   color: inherit !important;
 }
 .link-body {
-  color: $body-color;
+  color: scss-variables.$body-color;
 }
 .link-inverse {
-  color: $inverse;
+  color: variables.$inverse;
 }
 //----------------------------------------------------------//
 //	TEXT INVERSE
@@ -163,7 +171,7 @@ a.text-reset:hover,
 .text-inverse,
 .link-inverse,
 .text-inverse a:not(.btn) {
-  color: $white;
+  color: scss-variables.$white;
 }
 .bg-dark.text-inverse,
 .bg-dark.link-inverse,
@@ -174,36 +182,36 @@ a.text-reset:hover,
 [class*="offcanvas-"].text-inverse a:not(.btn):not([class*="link-"]),
 .bg-navy.text-inverse .post-meta,
 .bg-dark.text-inverse .post-meta {
-  color: $inverse;
+  color: variables.$inverse;
 }
 .text-inverse a:not(.btn):hover,
 .bg-dark.text-inverse a:not(.btn):not([class*="link-"]):hover,
 .bg-navy.text-inverse a:not(.btn):not([class*="link-"]):hover,
 [class*="offcanvas-"].text-inverse a:not(.btn):not([class*="link-"]):hover {
-  color: $link-color;
+  color: scss-variables.$link-color;
 }
 .text-inverse a:not(.btn):hover {
-  border-color: $link-color;
+  border-color: scss-variables.$link-color;
 }
 //----------------------------------------------------------//
 //	BADGES
 //----------------------------------------------------------//
 .badge.bg-light {
-  background: $border-light !important;
+  background: variables.$border-light !important;
 }
 //----------------------------------------------------------//
 //	MORE
 //----------------------------------------------------------//
 .more {
-  font-weight: $font-weight-bold;
+  font-weight: scss-variables.$font-weight-bold;
   letter-spacing: -0.01rem;
   display: inline-block;
   &:after {
     line-height: 1;
-    font-family: $font-family-unicons;
-    content: $icon-more;
+    font-family: variables.$font-family-unicons;
+    content: variables.$icon-more;
     padding-left: 0.05rem;
-    @include font-size(0.9rem);
+    @include rfs.font-size(0.9rem);
     font-weight: normal;
     vertical-align: -3px;
     margin-right: -0.25rem;
@@ -216,7 +224,7 @@ a.text-reset:hover,
 hr.double {
   background: none;
   border-style: double;
-  border-color: $hr-color;
+  border-color: scss-variables.$hr-color;
   border-top: 0;
 }
 _:default:not(:root:root),
@@ -226,22 +234,22 @@ hr.double {
 .divider-icon {
   border: 0;
   position: relative;
-  margin: $hr-margin-y 0;
+  margin: scss-variables.$hr-margin-y 0;
 }
 .divider-icon i {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @include font-size(1.2rem);
-  color: $hr-color;
+  @include rfs.font-size(1.2rem);
+  color: scss-variables.$hr-color;
 }
 .divider-icon:before,
 .divider-icon:after {
   position: absolute;
   top: 50%;
   content: "";
-  border-top: 1px solid $hr-color;
+  border-top: 1px solid scss-variables.$hr-color;
   width: calc(50% - 1.5rem);
 }
 .divider-icon:before {
@@ -290,36 +298,36 @@ hr.double {
 //----------------------------------------------------------//
 %heading {
   margin-top: 0; // 1
-  margin-bottom: $headings-margin-bottom;
-  font-family: $headings-font-family;
-  font-style: $headings-font-style;
-  font-weight: $headings-font-weight;
-  color: $headings-color;
+  margin-bottom: scss-variables.$headings-margin-bottom;
+  font-family: scss-variables.$headings-font-family;
+  font-style: scss-variables.$headings-font-style;
+  font-weight: scss-variables.$headings-font-weight;
+  color: scss-variables.$headings-color;
   word-spacing: 0.1rem;
-  letter-spacing: $letter-spacing;
+  letter-spacing: variables.$letter-spacing;
 }
 %heading {
   &.text-uppercase {
-    letter-spacing: $letter-spacing-lg;
+    letter-spacing: variables.$letter-spacing-lg;
   }
 }
 h1 {
-  line-height: $h1-line-height;
+  line-height: variables.$h1-line-height;
 }
 h2 {
-  line-height: $h2-line-height;
+  line-height: variables.$h2-line-height;
 }
 h3 {
-  line-height: $h3-line-height;
+  line-height: variables.$h3-line-height;
 }
 h4 {
-  line-height: $h4-line-height;
+  line-height: variables.$h4-line-height;
 }
 h5 {
-  line-height: $h5-line-height;
+  line-height: variables.$h5-line-height;
 }
 h6 {
-  line-height: $h6-line-height;
+  line-height: variables.$h6-line-height;
 }
 .display-1 {
   line-height: 1.2;
@@ -339,19 +347,19 @@ h6 {
 //	LETTER SPACING
 //----------------------------------------------------------//
 .ls-xs {
-  letter-spacing: $letter-spacing-xs !important;
+  letter-spacing: variables.$letter-spacing-xs !important;
 }
 .ls-sm {
-  letter-spacing: $letter-spacing-sm !important;
+  letter-spacing: variables.$letter-spacing-sm !important;
 }
 .ls-md {
-  letter-spacing: $letter-spacing !important;
+  letter-spacing: variables.$letter-spacing !important;
 }
 .ls-lg {
-  letter-spacing: $letter-spacing-lg !important;
+  letter-spacing: variables.$letter-spacing-lg !important;
 }
 .ls-xl {
-  letter-spacing: $letter-spacing-xl !important;
+  letter-spacing: variables.$letter-spacing-xl !important;
 }
 .ls-normal {
   letter-spacing: normal;
@@ -363,7 +371,7 @@ h6 {
   line-height: 1.65;
   color: initial !important;
   &.fs-lg {
-    @include font-size(1.05rem !important);
+    @include rfs.font-size(1.05rem !important);
     line-height: 1.6;
   }
 }
@@ -386,16 +394,16 @@ h6 {
     left: 0;
     width: 0.75rem;
     height: 0.05rem;
-    background: $main-color;
+    background: variables.$main-color;
   }
   @each $color,
-  $value in $colors {
+  $value in scss-variables.$colors {
     &.text-#{$color}:before {
       background-color: $value;
     }
   }
   &.text-muted:before {
-    background-color: $gray-400;
+    background-color: scss-variables.$gray-400;
   }
 }
 //----------------------------------------------------------//
@@ -408,7 +416,7 @@ h6 {
   &:after {
     content: "";
     display: block;
-    background: rgba($main-color, 0.12);
+    background: rgba(variables.$main-color, 0.12);
     border-radius: 5rem;
     position: absolute;
     width: calc(100% + 2.5%);
@@ -417,10 +425,10 @@ h6 {
     bottom: 9%;
     z-index: -1;
     margin-top: 0;
-    @include transition($btn-transition);
+    @include transition.transition(scss-variables.$btn-transition);
   }
   @each $color,
-  $value in $colors {
+  $value in scss-variables.$colors {
     &.#{$color}:after {
       background: rgba($value, 0.12);
     }
@@ -433,7 +441,7 @@ h6 {
   &:after {
     content: "";
     display: block;
-    background: $main-color;
+    background: variables.$main-color;
     border-radius: 5rem;
     position: absolute;
     width: calc(100% + 2.5%);
@@ -442,18 +450,18 @@ h6 {
     bottom: 4%;
     z-index: -1;
     margin-top: 0;
-    @include transition($btn-transition);
+    @include transition.transition(scss-variables.$btn-transition);
   }
   @each $color,
-  $value in $colors {
+  $value in scss-variables.$colors {
     &.#{$color}:after {
       background: $value;
     }
   }
 }
 @each $gradient,
-$value in $gradients {
-  .underline-#{$gradient}:after {
+$value in variables.$gradients {
+  .underline-#{scss-variables.$gradient}:after {
     background: $value;
   }
 }
@@ -478,7 +486,7 @@ $value in $gradients {
   &.style-1:after {
     content: "";
     z-index: -1;
-    border: 3px solid $main-color;
+    border: 3px solid variables.$main-color;
     position: absolute;
     left: 50%;
     top: 52%;
@@ -499,28 +507,28 @@ $value in $gradients {
     height: 111%;
   }
   @each $color,
-  $value in $colors {
+  $value in scss-variables.$colors {
     &.style-1.#{$color}:before,
     &.style-1.#{$color}:after {
       border-color: $value;
     }
   }
   &.style-2:after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 208.01 8.3'%3E%3Cpath fill='#{url-color($main-color)}' d='M64.42,2.42Q42.78,1.46,21.19,0c-2.8-.19-4.09.89-3.87,2L3.92,1.87c-5.13-.05-5.28,3.87-.12,3.92l60.49.55c46.63,2.08,93.34,2.51,139.81,1.27,5-.13,5.39-3.87.13-3.92Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 208.01 8.3'%3E%3Cpath fill='#{functions.url-color(variables.$main-color)}' d='M64.42,2.42Q42.78,1.46,21.19,0c-2.8-.19-4.09.89-3.87,2L3.92,1.87c-5.13-.05-5.28,3.87-.12,3.92l60.49.55c46.63,2.08,93.34,2.51,139.81,1.27,5-.13,5.39-3.87.13-3.92Z'/%3E%3C/svg%3E");
   }
   @each $color,
-  $value in $colors {
+  $value in scss-variables.$colors {
     &.style-2.#{$color}:after {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 208.01 8.3'%3E%3Cpath fill='#{url-color($value)}' d='M64.42,2.42Q42.78,1.46,21.19,0c-2.8-.19-4.09.89-3.87,2L3.92,1.87c-5.13-.05-5.28,3.87-.12,3.92l60.49.55c46.63,2.08,93.34,2.51,139.81,1.27,5-.13,5.39-3.87.13-3.92Z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 208.01 8.3'%3E%3Cpath fill='#{functions.url-color($value)}' d='M64.42,2.42Q42.78,1.46,21.19,0c-2.8-.19-4.09.89-3.87,2L3.92,1.87c-5.13-.05-5.28,3.87-.12,3.92l60.49.55c46.63,2.08,93.34,2.51,139.81,1.27,5-.13,5.39-3.87.13-3.92Z'/%3E%3C/svg%3E");
     }
   }
   &.style-3:after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 205 9.37'%3E%3Cpath fill='#{url-color($main-color)}' d='M202.47,9.37A1191.26,1191.26,0,0,0,1.79,7.48,1.67,1.67,0,0,1,0,5.92H0A1.76,1.76,0,0,1,1.63,4.21c67-5.71,133.83-5.43,200.8-.27A2.75,2.75,0,0,1,205,6.88h0A2.6,2.6,0,0,1,202.47,9.37Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 205 9.37'%3E%3Cpath fill='#{functions.url-color(variables.$main-color)}' d='M202.47,9.37A1191.26,1191.26,0,0,0,1.79,7.48,1.67,1.67,0,0,1,0,5.92H0A1.76,1.76,0,0,1,1.63,4.21c67-5.71,133.83-5.43,200.8-.27A2.75,2.75,0,0,1,205,6.88h0A2.6,2.6,0,0,1,202.47,9.37Z'/%3E%3C/svg%3E");
   }
   @each $color,
-  $value in $colors {
+  $value in scss-variables.$colors {
     &.style-3.#{$color}:after {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 205 9.37'%3E%3Cpath fill='#{url-color($value)}' d='M202.47,9.37A1191.26,1191.26,0,0,0,1.79,7.48,1.67,1.67,0,0,1,0,5.92H0A1.76,1.76,0,0,1,1.63,4.21c67-5.71,133.83-5.43,200.8-.27A2.75,2.75,0,0,1,205,6.88h0A2.6,2.6,0,0,1,202.47,9.37Z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 205 9.37'%3E%3Cpath fill='#{functions.url-color($value)}' d='M202.47,9.37A1191.26,1191.26,0,0,0,1.79,7.48,1.67,1.67,0,0,1,0,5.92H0A1.76,1.76,0,0,1,1.63,4.21c67-5.71,133.83-5.43,200.8-.27A2.75,2.75,0,0,1,205,6.88h0A2.6,2.6,0,0,1,202.47,9.37Z'/%3E%3C/svg%3E");
     }
   }
 }
@@ -536,25 +544,25 @@ $value in $gradients {
 .mark, 
 mark {
   color: inherit;
-  border-radius: $border-radius;
+  border-radius: scss-variables.$border-radius;
 }
 //----------------------------------------------------------//
 //	ROUNDED
 //----------------------------------------------------------//
 .rounded img {
-  @include border-radius($border-radius);
+  @include border-radius.border-radius(scss-variables.$border-radius);
 }
 @media (min-width: 992px) {
   .map.rounded-lg-start iframe,
   .image-wrapper.rounded-lg-start {
-    border-bottom-left-radius: $border-radius !important;
-    border-top-left-radius: $border-radius !important;
+    border-bottom-left-radius: scss-variables.$border-radius !important;
+    border-top-left-radius: scss-variables.$border-radius !important;
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
   }
   .image-wrapper.rounded-4-lg-start {
-    border-bottom-left-radius: $border-radius-xl !important;
-    border-top-left-radius: $border-radius-xl !important;
+    border-bottom-left-radius: scss-variables.$border-radius-xl !important;
+    border-top-left-radius: scss-variables.$border-radius-xl !important;
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
   }
@@ -562,18 +570,18 @@ mark {
 @media (max-width: 991.98px) {
   .map.rounded-top iframe,
   .image-wrapper.rounded-top {
-    border-top-left-radius: $border-radius !important;
-    border-top-right-radius: $border-radius !important;
+    border-top-left-radius: scss-variables.$border-radius !important;
+    border-top-right-radius: scss-variables.$border-radius !important;
   }
   .image-wrapper.rounded-4-top {
-    border-top-left-radius: $border-radius-xl !important;
-    border-top-right-radius: $border-radius-xl !important;
+    border-top-left-radius: scss-variables.$border-radius-xl !important;
+    border-top-right-radius: scss-variables.$border-radius-xl !important;
   }
 }
 .rounded-xl,
 .rounded-xl > .plyr,
 .rounded-xl img {
-  border-radius: $border-radius-xl !important;
+  border-radius: scss-variables.$border-radius-xl !important;
 }
 //----------------------------------------------------------//
 //	FRAME
@@ -773,9 +781,9 @@ figure img {
 //	BORDER COLOR
 //----------------------------------------------------------//
 @each $color,
-$value in $button-colors {
+$value in variables.$button-colors {
   .border-soft-#{$color} {
-    border-color: tint-color($value, $border-soft-level) !important;
+    border-color: scss-functions.tint-color($value, variables.$border-soft-level) !important;
   }
 }
 //----------------------------------------------------------//

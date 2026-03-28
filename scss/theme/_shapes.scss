@@ -1,3 +1,8 @@
+@use "../libraries/bootstrap/scss/functions";
+@use "../libraries/bootstrap/scss/variables" as scss-variables;
+@use "../variables";
+@use "mixins";
+
 //----------------------------------------------------------//
 //	SHAPES
 //----------------------------------------------------------//
@@ -19,15 +24,15 @@
   background-size: 0.75rem 0.75rem;
 }
 @each $color,
-$value in $colors {
+$value in scss-variables.$colors {
   .bg-dot.#{$color} {
-    @include bg-dot-variant($value);
+    @include mixins.bg-dot-variant($value);
   }
 }
 @each $color,
-$value in $colors {
+$value in scss-variables.$colors {
   .bg-line.#{$color} {
-    @include bg-line-variant($value);
+    @include mixins.bg-line-variant($value);
   }
 }
 @media (max-width: 575.98px) {
@@ -36,14 +41,14 @@ $value in $colors {
   }
 }
 @each $color,
-$value in $colors {
+$value in scss-variables.$colors {
   .shape.#{$color} .svg-fill {
     fill: $value;
   }
   .shape.soft-#{$color} .svg-fill {
-    fill: tint-color($value, $bg-soft-level);
+    fill: functions.tint-color($value, variables.$bg-soft-level);
   }
   .shape.pale-#{$color} .svg-fill {
-    fill: tint-color($value, $bg-pale-level);
+    fill: functions.tint-color($value, variables.$bg-pale-level);
   }
 }

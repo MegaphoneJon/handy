@@ -1,3 +1,7 @@
+@use "../libraries/bootstrap/scss/functions";
+@use "../libraries/bootstrap/scss/variables";
+@use "../libraries/bootstrap/scss/vendor/rfs";
+
 //----------------------------------------------------------//
 //	ALERTS
 //----------------------------------------------------------//
@@ -6,11 +10,11 @@
     position: absolute !important;
     top: 0;
     right: 0;
-    z-index: $stretched-link-z-index + 1;
-    padding: $alert-padding-y * 1.05 $alert-padding-x;
+    z-index: variables.$stretched-link-z-index + 1;
+    padding: variables.$alert-padding-y * 1.05 variables.$alert-padding-x;
     &:before {
       background: none;
-      @include font-size(1.2rem);
+      @include rfs.font-size(1.2rem);
       width: 1.2rem;
       height: 1.2rem;
     }
@@ -21,34 +25,34 @@
     }
   }
   @each $color,
-  $value in $theme-colors {
+  $value in variables.$theme-colors {
     &.alert-#{$color} .btn-close {
-      color: shift-color($value, $alert-color-scale - 20);
+      color: functions.shift-color($value, variables.$alert-color-scale - 20);
     }
     &.alert-#{$color} .btn-close:hover {
-      color: shift-color($value, $alert-color-scale + 10);
+      color: functions.shift-color($value, variables.$alert-color-scale + 10);
     }
   }
 }
 .alert-icon {
-  padding-left: $alert-padding-x * 2.5;
+  padding-left: variables.$alert-padding-x * 2.5;
   // Adjust close link position
   i {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: $stretched-link-z-index + 1;
-    padding: 0.8rem $alert-padding-x;
-    @include font-size(1rem);
+    z-index: variables.$stretched-link-z-index + 1;
+    padding: 0.8rem variables.$alert-padding-x;
+    @include rfs.font-size(1rem);
   }
 }
 // scss-docs-start alert-modifiers
 // Generate contextual modifier classes for colorizing the alert.
 @each $state,
-$value in $theme-colors {
-  $background: shift-color($value, $alert-bg-scale);
-  $border: shift-color($value, $alert-border-scale);
-  $color: shift-color($value, $alert-color-scale);
+$value in variables.$theme-colors {
+  $background: functions.shift-color($value, variables.$alert-bg-scale);
+  $border: functions.shift-color($value, variables.$alert-border-scale);
+  $color: functions.shift-color($value, variables.$alert-color-scale);
 }
 .alert[class*="bg-"] {
   padding: 0.8rem 0;
@@ -61,10 +65,10 @@ $value in $theme-colors {
       padding-bottom: 0;
       top: 50%;
       transform: translateY(-50%);
-      color: rgba($white, 0.8);
+      color: rgba(variables.$white, 0.8);
     }
     .btn-close:hover {
-      color: $white;
+      color: variables.$white;
     }
   }
 }
