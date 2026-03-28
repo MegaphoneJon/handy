@@ -1,3 +1,7 @@
+html {
+  overflow-x: hidden;
+}
+
 hr {
   margin: 1rem;
 }
@@ -88,4 +92,13 @@ img {
 
 .lpb-enable {
   z-index: 100;
+}
+
+// Override the weird behavior on mobile screens where the page is offset to the right.
+@media (max-width: 47.9em) {
+  .layout-no-sidebars .sidebar-offcanvas {
+    position: static !important;
+    width: auto !important;
+    left: auto !important;
+  }
 }
